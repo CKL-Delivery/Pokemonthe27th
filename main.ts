@@ -2,7 +2,49 @@ namespace SpriteKind {
     export const cpu = SpriteKind.create()
     export const npc = SpriteKind.create()
 }
-let you = sprites.create(img`
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (you.overlapsWith(door)) {
+        tiles.setTilemap(tilemap`level2`)
+        game.showLongText("go to the door and press b", DialogLayout.Bottom)
+    }
+})
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (you.overlapsWith(door_2)) {
+        tiles.setTilemap(tilemap`level4`)
+        game.splash("it looks like mr. mime has made maze")
+        mySprite = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Player)
+    }
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (you.overlapsWith(Professor_Oak)) {
+        game.splash("thank goodness ", "you're  here")
+        game.splash("i need you to", " help me find my pokemon")
+        game.showLongText("go to the  Doors and press b and in find Professor Oak's 5 Pokemon", DialogLayout.Bottom)
+    }
+})
+let mySprite: Sprite = null
+let door_2: Sprite = null
+let door: Sprite = null
+let Professor_Oak: Sprite = null
+let you: Sprite = null
+you = sprites.create(img`
     . . . . . . . . . . . . . . 
     . . . . . c c c c . . . . . 
     . . . . b c c c c b . . . . 
@@ -23,7 +65,7 @@ let you = sprites.create(img`
 controller.moveSprite(you)
 tiles.setTilemap(tilemap`level1`)
 scene.cameraFollowSprite(you)
-let Professor_Oak = sprites.create(img`
+Professor_Oak = sprites.create(img`
     . . . . f f f f . . . . . 
     . . f f f f f f f f . . . 
     . f f f f f f c f f f . . 
@@ -41,22 +83,10 @@ let Professor_Oak = sprites.create(img`
     . . 1 1 1 1 1 1 1 . . . . 
     . . 1 1 1 1 1 1 1 . . . . 
     `, SpriteKind.npc)
-Professor_Oak.setPosition(55, 40)
-let trainer_ella = sprites.create(img`
-    . . . . . f f 4 4 f f . . . . . 
-    . . . . f 5 4 5 5 4 5 f . . . . 
-    . . . f e 4 5 5 5 5 4 e f . . . 
-    . . f b 3 e 4 4 4 4 e 3 b f . . 
-    . . f 3 3 3 3 3 3 3 3 3 3 f . . 
-    . f 3 3 e b 3 e e 3 b e 3 3 f . 
-    . f 3 3 f f e e e e f f 3 3 f . 
-    . f b b f b f e e f b f b b f . 
-    . f b b e 1 f 4 4 f 1 e b b f . 
-    f f b b f 4 4 4 4 4 4 f b b f f 
-    f b b f f f e e e e f f f b b f 
-    . f e e f b d d d d b f e e f . 
-    . . e 4 c d d d d d d c 4 e . . 
-    . . e f b d b d b d b b f e . . 
-    . . . f f 1 d 1 d 1 d f f . . . 
-    . . . . . f f b b f f . . . . . 
-    `, SpriteKind.Player)
+Professor_Oak.setPosition(6, 77)
+game.splash("good you ", "are here")
+game.showLongText("walk over to Professor Oak and press a", DialogLayout.Bottom)
+door = sprites.create(assets.image`door`, SpriteKind.cpu)
+door.setPosition(22, 123)
+door_2 = sprites.create(assets.image`door2`, SpriteKind.Player)
+door_2.setPosition(160, 61)

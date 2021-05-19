@@ -1,0 +1,17 @@
+{
+    "b56guYADGomCe;Zox1rB": {
+        "data": "hwQQABAAAAAAAAAAAAAAAADg7u7u7u7uAODu7l5V7u4A4FXlXlVO7gDgVeVeVU7uAOBV5V5V7u4A4O7u7u7u7gDg7u7u7u7uAOBV5V5V7u4A4FXlXlXu7gDgVeVeVe7uAODu7u7u7u4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "door"
+    },
+    ")%t@Cd@_NbT4=VqQQNP-": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAADAAAAADAzMzMzMzMAMDMRERMRMwAwMxERExEzADAzEREzMzMAMDMzMzMzMwAwMzMzMzMzADAzETERETMAMDMRMRERMwAwMxExEREzADAzETEzMzMAMDMzMzMzMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "door2"
+    },
+    "*": {
+        "mimeType": "image/x-mkcd-f4",
+        "dataEncoding": "base64",
+        "namespace": "myImages"
+    }
+}
