@@ -33,10 +33,13 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         mr_mime.setPosition(58, 3)
         game.showLongText("go to  mr. mime ", DialogLayout.Bottom)
     }
-})
-controller.anyButton.onEvent(ControllerButtonEvent.Pressed, function () {
     if (you.overlapsWith(mr_mime)) {
         mr_mime.follow(you)
+    }
+    game.showLongText("go to the door", DialogLayout.Bottom)
+    door_3.setPosition(31, 6)
+    if (you.overlapsWith(door_3)) {
+        tiles.setTilemap(tilemap`level5`)
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -47,6 +50,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 let mr_mime: Sprite = null
+let door_3: Sprite = null
 let door_2: Sprite = null
 let door: Sprite = null
 let Professor_Oak: Sprite = null
@@ -97,3 +101,21 @@ door = sprites.create(assets.image`door`, SpriteKind.cpu)
 door.setPosition(22, 123)
 door_2 = sprites.create(assets.image`door2`, SpriteKind.Player)
 door_2.setPosition(160, 61)
+door_3 = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . d d d d d d d d d d d d . . . 
+    . d e e e e d d e e e e d . . . 
+    . d e e e e d d e e e e d . . . 
+    . d e e e e d d e e e e d . . . 
+    . d e e e e d d e e e e d . . . 
+    . d e e e e d d e e e e d . . . 
+    . d d d d d d d d d d d d . . . 
+    . d d d d d d d d d d d d . . . 
+    . d d 5 5 d d d d d d d d . . . 
+    . d d d d d d d d d d d d . . . 
+    . d e e e e d d e e e e d . . . 
+    . d e e e e d d e e e e d . . . 
+    . d e e e e d d e e e e d . . . 
+    . d e e e e d d e e e e d . . . 
+    `, SpriteKind.Player)
