@@ -12,24 +12,31 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (you.overlapsWith(door_2)) {
         tiles.setTilemap(tilemap`level4`)
         game.splash("it looks like mr. mime has made maze")
-        mySprite = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
+        mr_mime = sprites.create(img`
+            . . . . . . . . . . . . . . 8 8 
+            . . . . . . . . . . . . . 8 8 8 
+            8 8 8 . . . . . . . . . 8 8 8 8 
+            . 8 8 8 8 3 3 3 3 3 3 8 8 8 8 8 
+            . 8 8 8 8 3 1 f 3 1 f 8 8 8 . . 
+            . 8 8 8 8 3 f f 3 f f 8 8 8 . . 
+            . . . 8 8 3 3 3 3 3 3 8 8 . . . 
+            . . . . 2 3 f f f f 3 2 . . . . 
+            . 1 . . 3 3 3 3 3 3 3 3 . . 1 . 
+            1 1 1 . 1 1 1 1 1 1 1 1 . 1 1 1 
+            . 3 . 1 1 2 2 2 2 2 1 1 1 . 3 . 
+            . 3 3 1 1 2 2 2 2 2 1 1 1 3 3 . 
+            . . 1 1 1 2 2 2 2 2 1 1 1 1 . . 
+            . . 1 1 1 2 2 2 2 2 1 1 1 1 . . 
+            f . 1 1 1 1 1 1 1 1 1 1 1 1 . f 
+            f f 2 2 1 1 1 1 1 1 1 1 2 2 f f 
             `, SpriteKind.Player)
+        mr_mime.setPosition(58, 3)
+        game.showLongText("go to  mr. mime ", DialogLayout.Bottom)
+    }
+})
+controller.anyButton.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (you.overlapsWith(mr_mime)) {
+        mr_mime.follow(you)
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -39,7 +46,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         game.showLongText("go to the  Doors and press b and in find Professor Oak's 5 Pokemon", DialogLayout.Bottom)
     }
 })
-let mySprite: Sprite = null
+let mr_mime: Sprite = null
 let door_2: Sprite = null
 let door: Sprite = null
 let Professor_Oak: Sprite = null
