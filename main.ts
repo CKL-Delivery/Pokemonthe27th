@@ -4,12 +4,33 @@ namespace SpriteKind {
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (you.overlapsWith(door)) {
+        door_2 = sprites.create(assets.image`door2`, SpriteKind.Player)
+        door_2.setPosition(160, 61)
         tiles.setTilemap(tilemap`level2`)
-        game.showLongText("go to the door and press b", DialogLayout.Bottom)
+        game.showLongText("go to the door  and pressed B button.", DialogLayout.Bottom)
     }
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (you.overlapsWith(door_2)) {
+        door_3 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . d d d d d d d d d d d d . . . 
+            . d e e e e d d e e e e d . . . 
+            . d e e e e d d e e e e d . . . 
+            . d e e e e d d e e e e d . . . 
+            . d e e e e d d e e e e d . . . 
+            . d e e e e d d e e e e d . . . 
+            . d d d d d d d d d d d d . . . 
+            . d d d d d d d d d d d d . . . 
+            . d d 5 5 d d d d d d d d . . . 
+            . d d d d d d d d d d d d . . . 
+            . d e e e e d d e e e e d . . . 
+            . d e e e e d d e e e e d . . . 
+            . d e e e e d d e e e e d . . . 
+            . d e e e e d d e e e e d . . . 
+            `, SpriteKind.Player)
+        door_3.setPosition(31, 6)
         tiles.setTilemap(tilemap`level4`)
         game.splash("it looks like mr. mime has made maze")
         mr_mime = sprites.create(img`
@@ -35,20 +56,102 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     }
     if (you.overlapsWith(mr_mime)) {
         mr_mime.follow(you)
+        game.showLongText("go to the door", DialogLayout.Bottom)
     }
-    game.showLongText("go to the door", DialogLayout.Bottom)
-    door_3.setPosition(31, 6)
     if (you.overlapsWith(door_3)) {
-        tiles.setTilemap(tilemap`level5`)
+        tiles.setTilemap(tilemap`level6`)
+        door_2.destroy()
+        door_3.destroy()
+        door.destroy()
+        mySprite = sprites.create(img`
+            9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+            9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+            9 9 8 8 8 8 8 8 8 9 9 9 9 9 9 9 
+            9 8 9 9 9 9 9 9 9 8 9 9 9 9 9 9 
+            9 8 9 9 9 9 9 9 9 8 9 9 9 9 9 9 
+            9 8 9 9 9 9 9 9 9 8 9 9 9 9 9 9 
+            9 8 9 9 9 9 9 9 9 8 9 9 9 9 9 9 
+            9 8 9 9 9 9 9 9 9 8 9 9 9 9 9 9 
+            9 8 9 9 9 9 9 9 9 8 9 9 9 9 9 9 
+            9 8 9 9 9 9 9 9 9 8 9 9 9 9 9 9 
+            9 9 8 8 8 8 8 8 8 9 9 9 9 9 9 9 
+            9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+            9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+            9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+            9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+            9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+            `, SpriteKind.Player)
+        mySprite.setPosition(2, 76)
+        mySprite2 = sprites.create(img`
+            9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+            9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+            9 8 8 8 9 9 9 9 9 9 9 9 9 9 9 9 
+            9 8 9 8 9 9 9 9 9 9 9 9 9 9 9 9 
+            9 8 8 8 9 9 9 9 9 9 9 9 9 9 9 9 
+            9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+            9 9 9 8 8 8 8 8 9 9 9 9 9 9 9 9 
+            9 9 8 9 9 9 9 9 8 9 9 9 9 9 9 9 
+            9 9 8 9 9 9 9 9 8 9 9 9 9 9 9 9 
+            9 9 8 9 9 9 9 9 8 9 9 9 9 9 9 9 
+            9 9 8 9 9 9 9 9 8 9 9 9 9 9 9 9 
+            9 9 8 9 9 9 9 9 8 9 9 9 9 9 9 9 
+            9 9 9 8 8 8 8 8 9 9 9 9 9 9 9 9 
+            9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+            9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+            9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+            `, SpriteKind.Player)
+        mySprite.setPosition(42, 97)
+        mySprite3 = sprites.create(img`
+            9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+            9 9 8 8 8 8 8 9 9 9 8 8 8 9 9 9 
+            9 9 8 9 9 9 8 9 9 9 8 9 8 9 9 9 
+            9 9 8 9 9 9 8 9 8 9 8 8 8 9 9 9 
+            9 9 8 9 9 9 8 9 9 9 9 9 9 9 9 9 
+            9 9 8 8 8 8 8 9 9 9 9 9 9 9 9 9 
+            9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+            9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+            9 9 9 9 9 8 8 8 9 9 9 9 9 9 9 9 
+            9 9 9 9 9 8 9 8 9 8 8 8 9 9 9 9 
+            9 9 9 9 9 8 8 8 9 8 9 8 9 9 9 9 
+            9 9 9 9 9 9 9 9 9 8 8 8 9 9 9 9 
+            9 9 9 9 9 9 9 9 9 9 9 8 8 8 9 9 
+            9 9 9 9 9 9 9 9 9 9 9 8 9 8 9 9 
+            9 9 9 9 9 9 9 9 9 9 9 8 8 8 9 9 
+            9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 
+            `, SpriteKind.Player)
+        mySprite.setPosition(0, 0)
+        mySprite4 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Player)
+        mySprite.setPosition(0, 0)
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (you.overlapsWith(Professor_Oak)) {
         game.splash("thank goodness ", "you're  here")
         game.splash("i need you to", " help me find my pokemon")
-        game.showLongText("go to the  Doors and press b and in find Professor Oak's 5 Pokemon", DialogLayout.Bottom)
+        game.showLongText("go to the  Door and in find Professor Oak's 5 Pokemon", DialogLayout.Bottom)
     }
 })
+let mySprite4: Sprite = null
+let mySprite3: Sprite = null
+let mySprite2: Sprite = null
+let mySprite: Sprite = null
 let mr_mime: Sprite = null
 let door_3: Sprite = null
 let door_2: Sprite = null
@@ -99,23 +202,9 @@ game.splash("good you ", "are here")
 game.showLongText("walk over to Professor Oak and press a", DialogLayout.Bottom)
 door = sprites.create(assets.image`door`, SpriteKind.cpu)
 door.setPosition(22, 123)
-door_2 = sprites.create(assets.image`door2`, SpriteKind.Player)
-door_2.setPosition(160, 61)
-door_3 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . d d d d d d d d d d d d . . . 
-    . d e e e e d d e e e e d . . . 
-    . d e e e e d d e e e e d . . . 
-    . d e e e e d d e e e e d . . . 
-    . d e e e e d d e e e e d . . . 
-    . d e e e e d d e e e e d . . . 
-    . d d d d d d d d d d d d . . . 
-    . d d d d d d d d d d d d . . . 
-    . d d 5 5 d d d d d d d d . . . 
-    . d d d d d d d d d d d d . . . 
-    . d e e e e d d e e e e d . . . 
-    . d e e e e d d e e e e d . . . 
-    . d e e e e d d e e e e d . . . 
-    . d e e e e d d e e e e d . . . 
-    `, SpriteKind.Player)
+forever(function () {
+    music.playMelody("C5 B B C5 A A B C5 ", 120)
+})
+forever(function () {
+	
+})
